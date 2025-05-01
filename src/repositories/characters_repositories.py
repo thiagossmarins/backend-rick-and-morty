@@ -15,8 +15,11 @@ class CharacterRepositories:
           total = query.count()
 
           characters = query.limit(limit).offset(offset).all()
+        
+        else:
+          characters = query.all()
 
-          return characters, total
+        return characters, total
 
     except Exception:
       print("Error on my repositorie")
