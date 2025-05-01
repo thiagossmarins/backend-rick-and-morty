@@ -24,7 +24,7 @@ Este projeto implementa uma API utilizando Flask e Python para fornecer dados do
 3. Crie e ative um ambiente virtual:
    ```bash
    python3 -m venv venv
-   .\venv\Scripts\activateyes
+   .\venv\Scripts\activate
 
 4. Instale as dependências:
    ```bash
