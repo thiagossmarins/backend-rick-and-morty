@@ -7,3 +7,7 @@ characters_controller = CharactersController()
 @characters_bp.route('/', methods=['GET'])
 def getAllCharacters():
   return characters_controller.getAllCharacters()
+
+@characters_bp.route('/<int:character_id>', methods=['GET'])
+def getByID(character_id):
+    return characters_controller.getByID(character_id)

@@ -23,3 +23,11 @@ class CharacterService():
       "totalPages": totalPages,
       "currentPage": page
     }
+  
+  def getByID(self, character_id):
+    character = self.character_repository.getByID(character_id)
+
+    if character:
+        return character.to_dict()
+    else:
+        return None
