@@ -20,3 +20,11 @@ class CharacterRepositories:
 
     except Exception:
       print("Error on my repositorie")
+
+  def getByID(self, character_id):
+    try:
+        character = self.session.query(Characters).get(character_id)
+        return character
+    except Exception as e:
+        print(f"Erro no repository: {e}")
+        return None

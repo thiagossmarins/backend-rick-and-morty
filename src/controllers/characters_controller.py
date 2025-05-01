@@ -18,3 +18,15 @@ class CharactersController:
       return jsonify({
         "erro": "aconteceu algum erro"
       }), 500
+    
+  def getByID(self, character_id):
+    try:
+        result = self.character_service.getByID(character_id)
+
+        if result:
+            return jsonify(result), 200
+        else:
+            return jsonify({"error": "Personagem não encontrado"}), 404
+    except Exception as e:
+        print(f"Erro no controller: {e}")
+        return jsonify({"erro": "aconteceu algum erro"}), 500
