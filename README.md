@@ -35,4 +35,16 @@ Este projeto implementa uma API utilizando Flask e Python para fornecer dados do
    ```bash
    flask run --debug
 
-Acesse a API no navegador em http://127.0.0.1:5000/characters.
+### Exemplos de Uso
+
+1. Para buscar todos os personagens:
+   ```bash
+   Acesse a API no navegador em http://127.0.0.1:5000/characters
+
+2. Para buscar um personagem por ID:
+   ```bash
+   Acesse a API no navegador em http://127.0.0.1:5000/1
+
+3. Para realizar uma pesquisa paginada (exemplo de pesquisa por nome):
+   ```bash
+   Acesse a API no navegador em http://127.0.0.1:5000/?page=1&term=Rick
