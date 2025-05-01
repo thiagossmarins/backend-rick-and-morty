@@ -5,7 +5,6 @@ Este projeto implementa uma API utilizando Flask e Python para fornecer dados do
 ## Tecnologias Usadas
 - Python (versão 3.x)
 - Flask
-- Requests (para consumir a API oficial do Rick and Morty)
 
 ## Instalação
 
