@@ -7,11 +7,11 @@ class CharacterService():
     def __init__(self):
         self.character_repository = CharacterRepositories()
 
-    def getAllCharacters(self, page, term=None):
+    def get_all_characters(self, page, term=None):
         limitCharactersPage = 20
         offset = (page - 1) * limitCharactersPage
 
-        characters, total = self.character_repository.getAllCharacters(
+        characters, total = self.character_repository.get_all_characters(
             limitCharactersPage,
             offset,
             term
@@ -25,8 +25,8 @@ class CharacterService():
             "currentPage": page
         }
 
-    def getByID(self, character_id):
-        character = self.character_repository.getByID(character_id)
+    def get_by_id(self, character_id):
+        character = self.character_repository.get_by_id(character_id)
 
         if character:
             return character.to_dict()

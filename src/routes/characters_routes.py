@@ -5,9 +5,9 @@ characters_bp = Blueprint('characters_bp', __name__)
 characters_controller = CharactersController()
 
 @characters_bp.route('/', methods=['GET'])
-def getAllCharacters():
-  return characters_controller.getAllCharacters()
+def get_all_characters():
+  return characters_controller.get_all_characters()
 
 @characters_bp.route('/<int:character_id>', methods=['GET'])
-def getByID(character_id):
-    return characters_controller.getByID(character_id)
+def get_by_id(character_id):
+    return characters_controller.get_by_id(character_id)
