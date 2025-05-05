@@ -1,6 +1,6 @@
 # Backend Rick and Morty
 
-Este projeto implementa uma API utilizando Flask e Python para fornecer dados dos personagens da série Rick and Morty. A API permite consulta de todos os personagens disponíveis , pesquisa paginada e também a pesquisas por ID.
+Este projeto implementa uma API utilizando Flask e Python para fornecer dados dos personagens da série Rick and Morty. A API permite consulta de todos os personagens disponíveis, pesquisa paginada e também a pesquisas por ID.
 
 ## Tecnologias Usadas
 - Python (versão 3.x)
@@ -33,6 +33,14 @@ Este projeto implementa uma API utilizando Flask e Python para fornecer dados do
 5. Rode o servidor Flask:
    ```bash
    flask run --debug
+
+6. Criar arquivo .env:
+    ```bash
+   Crie um arquivo como o .env.example
+
+5. Configurar o caminho do seu banco de dados no .env:
+   ```bash
+   DATABASE_URI = "localhost_url"
 
 ### Exemplos de Uso
 
