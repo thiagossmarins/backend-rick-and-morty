@@ -7,14 +7,14 @@ class CharacterService():
     def __init__(self):
         self.character_repository = CharacterRepositories()
 
-    def get_all_characters(self, page, term=None):
+    def get_all_characters(self, page, name=None):
         limitCharactersPage = 20
         offset = (page - 1) * limitCharactersPage
 
         characters, total = self.character_repository.get_all_characters(
             limitCharactersPage,
             offset,
-            term
+            name
         )
 
         totalPages = math.ceil(total / limitCharactersPage)

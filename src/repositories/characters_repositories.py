@@ -5,7 +5,7 @@ class CharacterRepositories:
   def __init__(self):
     self.session = db.session
 
-  def getAllCharacters(self, limit, offset, search_term=None):
+  def get_all_characters(self, limit, offset, search_term=None):
     try:
         query = self.session.query(Characters)
 
@@ -24,7 +24,7 @@ class CharacterRepositories:
     except Exception:
       print("Error on my repositorie")
 
-  def getByID(self, character_id):
+  def get_by_id(self, character_id):
     try:
         character = self.session.query(Characters).get(character_id)
         return character
