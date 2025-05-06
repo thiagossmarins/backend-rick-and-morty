@@ -7,14 +7,14 @@ class CharactersController:
     def __init__(self):
         self.character_service = CharacterService()
 
-    def getAllCharacters(self):
+    def get_all_characters(self):
       try:
           page = request.args.get('page')
-          term = request.args.get('term', None)
+          name = request.args.get('name', None)
 
           if page is not None:
               page = int(page)
-              result = self.character_service.getAllCharacters(page, term)
+              result = self.character_service.get_all_characters(page, name)
               return jsonify(result), 200
           else:
               characters = Characters.query.all()
@@ -26,9 +26,9 @@ class CharactersController:
               "erro": "aconteceu algum erro"
           }), 500
 
-    def getByID(self, character_id):
+    def get_by_id(self, character_id):
         try:
-            result = self.character_service.getByID(character_id)
+            result = self.character_service.get_by_id(character_id)
 
             if result:
                 return jsonify(result), 200
