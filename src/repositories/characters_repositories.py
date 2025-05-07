@@ -12,12 +12,8 @@ class CharacterRepositories:
         if search_term:
           query = query.filter(Characters.name.ilike(f"%{search_term}%"))
 
-          total = query.count()
-
-          characters = query.limit(limit).offset(offset).all()
-        
-        else:
-          characters = query.all()
+        total = query.count()
+        characters = query.limit(limit).offset(offset).all()
 
         return characters, total
 
