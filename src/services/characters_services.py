@@ -1,5 +1,6 @@
 from src.models.characters_model import Characters
 from src.repositories.characters_repositories import CharacterRepositories
+from werkzeug.exceptions import NotFound
 import math
 
 
@@ -31,4 +32,4 @@ class CharacterService():
         if character:
             return character.to_dict()
         else:
-            return None
+            raise NotFound(f"Personagem com ID {character_id} não encontrado")
