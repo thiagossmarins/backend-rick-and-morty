@@ -5,6 +5,9 @@ class Characters(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(100), nullable=False)
     species = db.Column(db.String(50), nullable=False)
+    status = db.Column(db.String(50), nullable=False)
+    type = db.Column(db.String(50), nullable=True)
+    gender = db.Column(db.String(255), nullable=False)
     image = db.Column(db.String(255), nullable=False)
 
     def __repr__(self):
@@ -16,4 +19,14 @@ class CharactersOutput(ma.Schema):
     species = ma.String()
     image = ma.String()
 
+class CharacterOutput(ma.Schema):
+    id = ma.Integer()
+    name = ma.String()
+    species = ma.String()
+    image = ma.String()
+    status = ma.String()
+    type = ma.String()
+    gender = ma.String()
+
 characters_output = CharactersOutput(many=True)
+character_output = CharacterOutput()

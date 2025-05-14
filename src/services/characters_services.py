@@ -1,4 +1,4 @@
-from src.models.characters_model import characters_output
+from src.models.characters_model import characters_output, character_output
 from src.repositories.characters_repositories import CharacterRepositories
 from werkzeug.exceptions import NotFound
 import math
@@ -27,8 +27,8 @@ class CharacterService():
 
     def get_by_id(self, character_id):
         character = self.character_repository.get_by_id(character_id)
-
+        data = character_output.dump(character)
         if character:
-            return character.to_dict()
+            return data
         else:
             raise NotFound(f"Personagem com ID {character_id} não encontrado")
