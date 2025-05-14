@@ -1,8 +1,7 @@
-from src.models.characters_model import Characters
+from src.models.characters_model import characters_output
 from src.repositories.characters_repositories import CharacterRepositories
 from werkzeug.exceptions import NotFound
 import math
-
 
 class CharacterService():
     def __init__(self):
@@ -19,9 +18,9 @@ class CharacterService():
         )
 
         totalPages = math.ceil(total / limitCharactersPage)
-
+        data = characters_output.dump(characters)
         return {
-            "characters": [character.to_dict() for character in characters],
+            "characters": data,
             "totalPages": totalPages,
             "currentPage": page
         }
