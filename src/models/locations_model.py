@@ -1,4 +1,6 @@
 from src.models import db, ma
+from sqlalchemy import func
+from marshmallow import fields
 
 class Locations(db.Model):
     __tablename__ = 'locations'
@@ -10,6 +12,13 @@ class Locations(db.Model):
     character_origin = db.relationship('Characters', foreign_keys='Characters.origin_id', uselist=True, lazy=True, back_populates='origin')
     character_location = db.relationship('Characters', foreign_keys='Characters.location_id', uselist=True, lazy=True, back_populates='location')
 
+    def residents_count(self):
+        from src.models import Characters, db 
+
+        return db.session.query(func.count(Characters.id))\
+            .filter(Characters.location_id == self.id)\
+            .scalar()
+
     def __repr__(self):
         return f"<Locations {self.name}>"
 
@@ -18,3 +27,7 @@ class LocationsOutput(ma.Schema):
     name = ma.String()
     type = ma.String()
     dimension = ma.String()
+    residents_count = fields.Method("get_residents_count")
+
+    def get_residents_count(self, obj):
+        return obj.residents_count()
