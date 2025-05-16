@@ -36,7 +36,7 @@ class CharacterOutput(CharactersOutput):
     gender = ma.String()
     origin = ma.Nested('LocationsOutput')
     location = ma.Nested('LocationsOutput')
-    episodes = ma.Nested('EpisodesOutput')
+    episodes = ma.Nested('EpisodesOutput', many=True)
     last_seen = ma.String(attribute="last_seen")
 
 characters_output = CharactersOutput(many=True)
