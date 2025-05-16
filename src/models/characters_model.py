@@ -11,11 +11,15 @@ class Characters(db.Model):
     image = db.Column(db.String(255), nullable=False)
 
     origin_id = db.Column(db.Integer, db.ForeignKey('locations.id'),nullable=True)
-    origin = db.relationship('Locations', foreign_keys=[origin_id], uselist=False, lazy=True, back_populates='character_origin')
-    
     location_id = db.Column(db.Integer, db.ForeignKey('locations.id'),nullable=True)
+    
+    origin = db.relationship('Locations', foreign_keys=[origin_id], uselist=False, lazy=True, back_populates='character_origin')
     location = db.relationship('Locations', foreign_keys=[location_id], uselist=False, lazy=True, back_populates='character_location')
+    episodes = db.relationship('Episodes', secondary='characters_episodes', back_populates='characters')
 
+    @property
+    def last_seen(self):
+        return self.episodes[-1].air_date
 
     def __repr__(self):
         return f"<Characters {self.name}>"
@@ -32,6 +36,7 @@ class CharacterOutput(CharactersOutput):
     gender = ma.String()
     origin = ma.Nested('LocationsOutput')
     location = ma.Nested('LocationsOutput')
+    last_seen = ma.String(attribute="last_seen")
 
 characters_output = CharactersOutput(many=True)
 character_output = CharacterOutput()
