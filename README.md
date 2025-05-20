@@ -28,7 +28,7 @@ Este projeto implementa uma API utilizando Flask e Python para fornecer dados do
 
 4. Instale as dependências:
    ```bash
-   pip freeze > requirements.txt
+   pip install > requirements.txt
 
 5. Rode o servidor Flask:
    ```bash
