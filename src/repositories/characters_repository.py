@@ -22,7 +22,7 @@ class CharacterRepositories:
 
   def get_by_id(self, character_id):
     try:
-        character = self.session.query(Characters).get(character_id)
+        character = self.session.get(Characters, character_id)
         return character
     except Exception as e:
         print(f"Erro no repository: {e}")
