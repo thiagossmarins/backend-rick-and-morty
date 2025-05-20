@@ -29,14 +29,13 @@ class CharactersOutput(ma.Schema):
     name = ma.String()
     species = ma.String()
     image = ma.String()
+    status = ma.String()
 
 class CharacterOutput(CharactersOutput):
-    status = ma.String()
     type = ma.String()
     gender = ma.String()
     origin = ma.Nested('LocationsOutput')
     location = ma.Nested('LocationsOutput')
-    episodes = ma.Nested('EpisodesOutput', many=True)
     last_seen = ma.String(attribute="last_seen")
 
 characters_output = CharactersOutput(many=True)

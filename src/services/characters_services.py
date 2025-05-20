@@ -1,5 +1,5 @@
 from src.models.characters_model import characters_output, character_output
-from src.repositories.characters_repositories import CharacterRepositories
+from src.repositories.characters_repository import CharacterRepositories
 from werkzeug.exceptions import NotFound
 import math
 
