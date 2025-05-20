@@ -7,16 +7,13 @@ class CharactersController:
     def __init__(self):
         self.character_service = CharacterService()
 
-    def get_all_characters(self):
+    def get_all_characters(self, page, name):
         try:
-            page = request.args.get("page", default=1, type=int)
-            name = request.args.get("name", default=None, type=str)
-
             result = self.character_service.get_all_characters(page, name)
             return api_response(
                 True,
                 "Characters encontrados com sucesso",
-                {"characters": result},
+                result,
                 200
             )
 
@@ -36,7 +33,7 @@ class CharactersController:
             return api_response(
                 True,
                 "Character encontado com sucesso",
-                {"character": result},
+                result,
                 200
             )
         except NotFound as e:
