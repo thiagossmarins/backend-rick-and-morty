@@ -19,16 +19,19 @@ class CharacterService():
 
         totalPages = math.ceil(total / limitCharactersPage)
         data = characters_output.dump(characters)
+        data.sort(key=lambda c: c['id'])
         return {
             "characters": data,
-            "totalPages": totalPages,
-            "currentPage": page
+            "total_pages": totalPages,
+            "current_page": page
         }
 
     def get_by_id(self, character_id):
         character = self.character_repository.get_by_id(character_id)
         data = character_output.dump(character)
         if character:
-            return data
+            return {
+                "character": data,
+            }
         else:
             raise NotFound(f"Personagem com ID {character_id} não encontrado")
