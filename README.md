@@ -21,26 +21,27 @@ Este projeto implementa uma API utilizando Flask e Python para fornecer dados do
    ```bash
    cd backend-rick-and-morty
 
-3. Crie e ative um ambiente virtual:
+3. Criar arquivo .env:
+    ```bash
+   Crie um arquivo como o .env.example
+
+4. Configurar o caminho do seu banco de dados no .env:
+   ```bash
+   DATABASE_URI = "localhost_url"
+
+5. Crie e ative um ambiente virtual:
    ```bash
    python3 -m venv venv
    .\venv\Scripts\activate
 
-4. Instale as dependências:
+6. Instale as dependências:
    ```bash
    pip install > requirements.txt
 
-5. Rode o servidor Flask:
+7. Rode o servidor Flask:
    ```bash
    flask run --debug
 
-6. Criar arquivo .env:
-    ```bash
-   Crie um arquivo como o .env.example
-
-5. Configurar o caminho do seu banco de dados no .env:
-   ```bash
-   DATABASE_URI = "localhost_url"
 
 ### Exemplos de Uso
 
