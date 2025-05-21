@@ -18,7 +18,6 @@ class CharactersController:
             )
 
         except Exception as e:
-            print(f"Erro no controller: {e}")
             return api_response(
                 False,
                 f"Ocorreu um erro ao buscar os characters: {str(e)}",

@@ -29,9 +29,9 @@ class CharacterService():
     def get_by_id(self, character_id):
         character = self.character_repository.get_by_id(character_id)
         data = character_output.dump(character)
-        if character:
-            return {
-                "character": data,
-            }
-        else:
+        if  not character:
             raise NotFound(f"Personagem com ID {character_id} não encontrado")
+        
+        return {
+            "character": data,
+        }

@@ -18,12 +18,13 @@ class CharacterRepositories:
         return characters, total
 
     except Exception:
-      print("Error on my repositorie")
+      db.session.rollback()
+      raise
 
   def get_by_id(self, character_id):
     try:
         character = self.session.get(Characters, character_id)
         return character
     except Exception as e:
-        print(f"Erro no repository: {e}")
-        return None
+      db.session.rollback()
+      raise

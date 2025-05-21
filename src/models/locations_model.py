@@ -11,11 +11,10 @@ class Locations(db.Model):
 
     character_origin = db.relationship('Characters', foreign_keys='Characters.origin_id', uselist=True, lazy=True, back_populates='origin')
     character_location = db.relationship('Characters', foreign_keys='Characters.location_id', uselist=True, lazy=True, back_populates='location')
-    characters = db.relationship( 'Characters',back_populates='location', lazy=True, foreign_keys='Characters.location_id')
 
     @property
     def residents_count(self):
-        return len(self.characters)
+        return len(self.character_location)
 
     def __repr__(self):
         return f"<Locations {self.name}>"
@@ -25,7 +24,4 @@ class LocationsOutput(ma.Schema):
     name = ma.String()
     type = ma.String()
     dimension = ma.String()
-    residents_count = fields.Method("get_residents_count")
-
-    def get_residents_count(self, obj):
-        return obj.residents_count
+    residents_count = ma.String(attibute="residents_count")
